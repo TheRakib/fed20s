@@ -1,0 +1,20 @@
+{
+  "name": "forstatest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodedom index.js",
+    "node-sass": "node-sass style.css main.scss -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
