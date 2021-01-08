@@ -1,0 +1,97 @@
+
+
+Kort om mig. 
+AR,VR, spelprogrammering med c# , andriod java, 
+
+php, c# , javascript ,css , html 
+
+react, vue, Node  
+
+**systemarchitecture, aws moln , lösning.
+                boto3, nodejs -> 
+eucaps -> cron jobb nodejs -> skalbar plattform i aws.
+
+
+serverless -> nodejs 
+
+........................
+
+
+
+
+kursplanering : (spela in): 
+  
+*ladda ner git
+npm , cli (kommandotolken)
+
+npm: node package manager. 
+
+  steg 1: skapa ett projekt
+  steg 2: initiera npm i projekt 
+
+        initiera: npm init
+                  npm init -y
+
+
+        
+
+
+
+kl.10.00 
+
+
+         - npm paket : nodemon , express, node-sass 
+
+                    node_modules
+
+            återhämta node_modules: npm install
+                     
+
+
+        
+        
+          - uninstallera ett paket: 
+                npm uninstall node-sass 
+
+
+    
+
+
+  
+
+
+
+steg 3: global npm package 
+      
+      npm i -g paketnamn
+      npm uninstall -g paketnamn  //tas bort från globalt
+
+
+ctrl + c : för att kunna stänga running task från cmd
+
+// hur vi kan köra npm scripts 
+npm run script: 
+
+   npm start /npm run start 
+   npm run scriptnamn till ex. npm run node-sass
+
+
+Node-js: 
+ ett miljö :  js backend miljö
+
+ backend: - server side -> server -> operative , 
+      
+ läsa och skriver data i servers filsystem, databaser
+
+skriva business logic, validera data -> lagra databasen
+
+
+
+
+// färdiga moduler : node org
+// räcker med require()
+
+
+// tredje parts
+     // npm i paketnamn
+      // require()
