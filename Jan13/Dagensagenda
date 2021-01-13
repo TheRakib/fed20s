@@ -20,8 +20,13 @@ databasen -> via api -> ejs.
      steg 5:  Om man vill skicka data med render filen 
            : res.render(filen, {data: "data"} )
 
-           
+
 
 --->  html och js inbyggd javascript in i html 
 
-* Middleware
+* Middleware :  
+
+
+
+handledning: 
+11.50 -> 12.30 

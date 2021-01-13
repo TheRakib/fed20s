@@ -4,12 +4,26 @@ const app = express();
 
 
 
+// client - Middleware - server 
+
+//  egen customised middleware 
+
+    // app.use  (   (req, res, next)=>{   
+        
+    //  jsobject = req.body.data  
+    // enlist = jsobject.id 
+    
+     // next()   }    )
+
 app.use( express.json()   )
+
 
 // oobligatoriskt / behövs inte om man har views i views folder 
 app.set("views", "./views")
 
 app.set("view engine", "ejs")
+
+
 
 const products = [
 
@@ -32,7 +46,7 @@ const products = [
 
 // uppdatera något från listan 
 //client --> server 
-
+// skriver samma route  /  path  flera 
 
 app.get("/", (req, res)=>{
 
@@ -45,7 +59,6 @@ app.get("/", (req, res)=>{
  //res.send("Application is running")
 
  // res.json()
-
  const firstDataFromList =  products[0]
  res.render("index.ejs", {data: firstDataFromList})
 
@@ -91,8 +104,6 @@ app.put("/:id", (req, res)=>{
 app.listen(8000, ()=>{
     
 })
-// en dator EC2 
-
 
 
 // kl. 11. 30 
