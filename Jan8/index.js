@@ -17,12 +17,22 @@ const http = require("http")
 
 //fs.readFile(" path till filen den ska läsa" , callback)
 
- fs.readFile("./dagensagenda", (err, data)=> {
+
+
+ const returnedData =fs.readFile("./dagensagenda",  (err, data)=> {
+
+//if( err) return console.log("Kunde inte läsa data")
+// console.log(data.toString())
     //console.log(err);
-    console.log(data.toString()) 
-    
+      console.log(data.toString()) 
+       
+      // return data
+      // skicka in den data utanför callback??  
+
     //buffer 12 32 44  -> encode -  decode med toString() 
 }) 
+
+
 
 // skriva filer i systemet
 
@@ -32,7 +42,7 @@ const http = require("http")
 fs.writeFile("./index.html", 
              "hello från node js", (err)=>{
 
-    console.log(err)
+            console.log(err)
 })
  
 
@@ -46,6 +56,11 @@ const server = http.createServer( (request, response) =>{
     response.end() //Stänger kopplingen 
 })
 
+
+
+// 3000 client webbappar .
+
+// 8000  server webbappar.
 server.listen(8000);
 
 // expressjs: man enkelt skapa apier, server, routing 

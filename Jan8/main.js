@@ -1,15 +1,18 @@
 //const { response } = require('express');
-const { request, response } = require('express');
+//const { request, response } = require('express');
 const express = require('express'); //importerade express
 
 const app = express(); // anropa express metoden. 
 
 // servera data från min app 
 
+// minapp.com/
 app.get("/", (request , response)=>{
     response.send("hello from node js")
 })
 
+
+// minapp.com/home
 app.get("/home", (request, response)=> {
    response.send(" Hello from home router")
 })

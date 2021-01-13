@@ -2,8 +2,11 @@
 
 // importera dem i projektet
 const fs = require("fs");
-
 const os = require("os");
+
+
+
+
 
 console.log(os.userInfo())
 

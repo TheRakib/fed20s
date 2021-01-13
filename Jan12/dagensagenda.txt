@@ -1,0 +1,33 @@
+* Upprepa jan8 
+
+
+* API , rest api: get , post reg.
+
+  Application programming interface: 
+
+      web api: web läsare api:  document , window
+
+
+Data källa. ->  SOAP , Rest API ,   Graphql 
+                   
+CRUD ---------->
+                   get :läsa 
+                   post : skriva
+                   update  ( patch /put ) : uppdatera 
+                   delete : radera data
+ 
+client ------> Http metoderna ------> server
+
+Rest API : HTTP metodena för att kommuicera med appar.
+
+
+backend/server  programmeringstask: 
+    
+    ** läsa , skriva i filsystem/database
+    ** serve /leverar data till kunder/client
+       -> Rest api/ Graphql
+    ** CRUD -create, read, update, delete 
+    
+
+* export import i node js filerna  
+
