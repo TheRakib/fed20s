@@ -1,0 +1,27 @@
+
+* Rest API ,   get , post :
+
+
+* Request , response 
+
+* Delete , put   
+
+* EJS - embedded javascript 
+databasen -> via api -> ejs. 
+
+     Steg 1: npm i ejs 
+     steg 2: skapa folder med views namn i root mappen
+     steg 3: 
+           app.set("views", "./views")  // frivillig om man har views 
+           app.set("view engine", "ejs")
+
+     steg 4: res.render(ejs filen) till ex. res.render(index.ejs)
+
+     steg 5:  Om man vill skicka data med render filen 
+           : res.render(filen, {data: "data"} )
+
+           
+
+--->  html och js inbyggd javascript in i html 
+
+* Middleware

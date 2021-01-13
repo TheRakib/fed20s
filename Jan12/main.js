@@ -1,17 +1,18 @@
 const express = require("express");
-
-
 const app = express();
 
 // skriver json data ->   skickar in ->  middleware
    // ->localhost:8000/products
 
    // json till js objekt
-
+//
 app.use( express.json()   )
  
 // client -->  json data -->   
      // -->Middleware konvertera json till js objekt  ->server
+
+
+// client <---> request <--> via middleware <--> api
 
 // json 
 // middleware
@@ -35,6 +36,7 @@ const products = [ {
     price: 2000
 }
 ]
+// en lista av objektet
 
 // products[1]
 // req- request, res-response 
@@ -76,9 +78,18 @@ app.post("/products" ,(req, res)=> {
 
     // användare kommer att skriva data med nån klient
      
+
+   // localhost:8000/products 
     // request body 
         // req.body.name
         // req.body.price
+
+        // req.body data  från användare 
+        // JSON format- js 
+        // Middleware  
+          //  app.use( express.json() ) 
+              
+          
     
         console.log(req.body.name)
 
