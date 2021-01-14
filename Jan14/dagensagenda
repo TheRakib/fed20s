@@ -1,0 +1,72 @@
+* upprepning  
+
+* Database , mongodb
+
+       database-->  central lagringsplats 
+
+
+
+
+typer: 
+    SQL  ---> 3Normalization Form -- relational database -> table  ->fields
+               mysql, sqlserver, oracle 
+    noSQL  ---->  typer, document, grapgh db, time series 
+                    mongodb, dynamodb, firestore 
+                   -> mongodb -> collections -> docs
+
+
+Skriva data -> noSQL   , app
+
+SQL -> read data snabbt 
+
+
+//10.00 
+
+
+  // application server : levereras appar typ node-> node js, php appar, .net
+                          
+                          Node js :-> localhost
+
+
+
+  // database server : hosting, 
+                 
+                 database server->installera alla saker och ting mongodb
+                
+                utan mongo atlas : 
+
+
+
+* Skapa en mongodb cluster / moln / live database 
+
+      Steps to create mongo db cluster/ database server:
+
+         Steg 1: Skapa konto i mongodb cluster
+         https://www.mongodb.com/cloud/atlas/register
+
+
+               * Använd private email 
+               * använda gärna nån server/cluster region som är näramre 
+                till er. 
+         
+         Steg 2: connect till appen 
+
+               * Då måste vi ha connection string 
+               * Vi måste ha lösenord 
+
+        
+    
+
+Kl.11.00
+
+
+        
+
+
+
+
+
+
+
+  ** 
+* mongoose / ORM 

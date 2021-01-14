@@ -21,6 +21,15 @@ databasen -> via api -> ejs.
            : res.render(filen, {data: "data"} )
 
 
+// mongodb+srv://fed20s:<password>@cluster0.4t6xn.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+
+Steg 1: npm i mongoose
+// mongoose : npm i mongoose  
+
+   // require mongoose
+   // mongoose.connect("  ")
+
 
 --->  html och js inbyggd javascript in i html 
 

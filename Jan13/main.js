@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
 
@@ -19,9 +20,12 @@ app.use( express.json()   )
 
 
 // oobligatoriskt / behövs inte om man har views i views folder 
-app.set("views", "./views")
+// app.set("views", "./views")
 
 app.set("view engine", "ejs")
+
+// vi måste npm i ejs 
+   // behövs inte require()
 
 
 
@@ -48,6 +52,13 @@ const products = [
 //client --> server 
 // skriver samma route  /  path  flera 
 
+
+// rakib.se/yrke   
+// rakib.se/aboutme
+// rakib.se/api  
+// route
+// läsa get rakib.se  
+          //  404
 app.get("/", (req, res)=>{
 
    //console.log(req)
@@ -59,13 +70,30 @@ app.get("/", (req, res)=>{
  //res.send("Application is running")
 
  // res.json()
+ 
+ 
+ 
  const firstDataFromList =  products[0]
  res.render("index.ejs", {data: firstDataFromList})
+
+
+ // js + html -> skapas av express , 
+
+   // får data från api när express renderar den
 
     //res.statusCode(200).json()
 
 })
 
+
+app.post("/register", (req, res)=>{
+  
+    const userInfo=  req.body
+
+
+   res.send("inskriven")
+
+})
 
 
 
@@ -77,6 +105,9 @@ app.delete("/:id" , (req , res)=>{
     products.splice(params, 1)
     res.send(products)
 })
+
+
+
 
 app.put("/:id", (req, res)=>{
     //update data in i database
@@ -100,10 +131,16 @@ app.put("/:id", (req, res)=>{
 // put,   ----> // update()
 // delete  ----> // delete()
 
+//
+mongoose.connect("mongodb+srv://fed20s:Fed20s@cluster0.4t6xn.mongodb.net/<dbname>?retryWrites=true&w=majority", ()=>{
 
-app.listen(8000, ()=>{
+ console.log("connected to db")
+
+ app.listen(8000, ()=>{
     
 })
 
+})
 
-// kl. 11. 30 
+
+
