@@ -61,6 +61,8 @@ const products = [
           //  404
 app.get("/", (req, res)=>{
 
+
+    // Read från databasen - skicka data användare 
    //console.log(req)
    // console.log(res)
    // console.table() console.warn()
@@ -88,6 +90,8 @@ app.get("/", (req, res)=>{
 
 app.post("/register", (req, res)=>{
   
+
+    // ta data från användare -> skriva databasen 
     const userInfo=  req.body
 
 
@@ -98,6 +102,8 @@ app.post("/register", (req, res)=>{
 
 
 app.delete("/:id" , (req , res)=>{
+
+    // ta en id -> radera data från databasen 
      // req.params.id -> number(req.params.id)
     //   hantera lista 
     const params = Number(req.params.id)
@@ -110,6 +116,7 @@ app.delete("/:id" , (req , res)=>{
 
 
 app.put("/:id", (req, res)=>{
+    // ta en id -> updatera data från databasen 
     //update data in i database
     // updatera data från en lista 
     // Number(req.params.id)  // index nummer 
