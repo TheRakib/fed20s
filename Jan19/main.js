@@ -6,9 +6,9 @@ const Task = require("./model/task")
 /* 
 
 skapa data : new Modelnamnet(  {  data ....  }).save() C(create)
-Läsa data/find data : Modelnamnet.find()        R(read)
-update data:          Modelnamnet.update()      U(update)
-delete data:          Modelnamnet.deleteOne()      D(delete)
+Läsa data/find data : Modelnamnet.find()               R(read)
+update data:          Modelnamnet.updateOne()          U(update)
+delete data:          Modelnamnet.deleteOne()          D(delete)
 
 
 */ 
@@ -26,7 +26,8 @@ app.use( express.json()   )
 
 
 
-//Ifall ni använnder ejs , behöver ni bodyparser 
+
+
 
 
 // warning 
@@ -39,11 +40,13 @@ app.get("/", async (req, res)=>{
   
     //läsa data 
 
-  const task =  await Task.find()
+const task =  await Task.find()
         // Task maps with tasks collection 
+          // array av objekt 
 
     res.send(task)
 
+   
 })
 
 
@@ -54,7 +57,8 @@ app.post("/", async (req, res)=>{
         description:req.body.description
     }).save()
 
-    
+    //klient-> post -> new Task({ })-> mongodb
+
     //const resultat=  await new Task(  {  name:" Träna"})
     // resultat.save();
 
@@ -68,6 +72,13 @@ app.post("/", async (req, res)=>{
    // plus:  övningupgifterna  
 app.put("/:id", async (req, res)=> {
     
+     await Task.updateOne({_id: req.params.id},
+         { 
+             name: req.body.name,
+             description:req.body.description 
+        
+        }
+         )
 
     // update 
     res.send(" update succeeded")

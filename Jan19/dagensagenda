@@ -2,39 +2,17 @@
 * upprepning
 
 // mongooge //   O R M 
-                            
-
-
                             BSON : mongo db 
                             sql queries -> sql database 
 
 Object Relational Mapping :- >  object -> lagra -> i databasen 
-
 * mongoose schema / table  / collections  / entity 
-
     :- product : -> 
-    
-    name (data type, required),  
-    
+    name (data type, required),    
     price( data type, required)
-
     description 
-
     rating
-
-
     Kl. 10.00
-
-
-
-
-
-
 * mongoose schema ,ORM 
-
-
-
-
-
 * CRUD mot databasen 
 

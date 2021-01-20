@@ -1,0 +1,28 @@
+* upprepning mongoose schema, CRUD
+//ejs : html- get, post 
+// delete
+
+
+
+----
+// react, angular , vue -> axios/fetch / xttpHTMLRequest /ajax 
+  -> req body , req header 
+  -> alla metoder finns 
+// app.put : ersätta hela docs/field 
+// app.patch  : delvis av docs/field : då måste man använda rätt metod för 
+// att kunna updatera docs.
+----
+
+
+
+
+* CRUD med ejs, express api, mongoose
+
+npm i express ejs mongoose
+
+    * ejs Middleware
+    * ejs partials
+    * ejs css 
+    * formulär hantering (post req med ejs)
+
+
