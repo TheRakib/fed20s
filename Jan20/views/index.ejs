@@ -17,11 +17,20 @@
      <% for(let i=0; i<data.length; i++) { %>
 
      <div>  <%= data[i].name %> .
-         <span> 
+         <!-- <span> 
              datum :  
               <%= data[i].date %>
-         </span>   
+         </span>    -->
+   
+
+        
+
+        <a href="/edit/<%= data[i]._id %>" > edit  </a> 
+         
+        <a href="/delete/<%= data[i]._id %>"  >    delete</a> 
+           
      </div>
+       
          
     <% } %>
 </body>
