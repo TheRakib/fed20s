@@ -2,13 +2,29 @@
 * MVC : 
 Model(data) 
 view (users view)
-controller (logik)
+controller (logik) // routes
 
 
 * express router :  router
-* SASS i express .
-* Mongoose find , advanced find , logical queries , user defined functions
-* Schmema validering 
 
-* todoEdit
+* SASS i express js 
+
+
+* Mongoose find , advanced find , logical queries , user defined functions
+   :- queries -> frågor till databasen 
+
+    hitta , limit , skip , count , sort 
+      logical sökning :  söka data med olika comparision operator 
+    
+    User deined functions: egna skrina logic/kod/ function 
+
+
+
+* Schmema validering  
+
+
+* todoEdit  // 
+
+
+
 * query string(object for route) , query params (variable for route)

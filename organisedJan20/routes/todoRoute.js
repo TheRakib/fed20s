@@ -9,14 +9,27 @@ const router = express.Router(); //mini app
 
 
 // mongodb -> model (find)->  express api (app.get) -> ejs -> slutanvändare
+//await Todo.find().skip(2).limit(3).select({date:1})
+//await Todo.find().sort({name:-1})  /descending , asending 
+//.count()
 
 router.get("/", async (req, res)=>{
-    
-    const data =  await Todo.find()
-     
+try{
+      const data =  await Todo.find()
+
+             // Todo.filter()
+      console.log(data)
+      res.render("index.ejs", {data:data, error:" "})
+      
+}
+
+catch(err){
+    const error = err
+    res.render("error.ejs", { error:error })
+}
     // data : data :-> data
  
-     res.render("index.ejs", {data:data})
+     
  })
  
  
@@ -25,12 +38,19 @@ router.get("/", async (req, res)=>{
  //      ->express api (app.post)-> model(new Model().save)-> mongodb
  
  router.post("/", async (req, res)=>{
+
  console.log(  req.body.name) 
+
+ try{
  await new Todo({
      name:req.body.name
  }).save();
  res.redirect("/")
- 
+}
+catch(err){
+
+    res.render("error.ejs" , {error: err})
+}
  })
  
  // 10:30 
@@ -46,6 +66,8 @@ router.get("/", async (req, res)=>{
      // hittar data 
     const todo=  await Todo.findOne({_id:req.params.id})
     console.log(todo)
+
+    // skicka in hela data listan , + id som kommer via req.params.id
     res.render("edit.ejs", {todo:todo})
      // vi kommer att skicka datan till en ejs file edit.ejs
      //edit.ejs ett förmulär 
@@ -87,3 +109,4 @@ router.get("/", async (req, res)=>{
  
  // den kollar om det finns nån database med samma namn som man anger i 
  
+ //kl.10.00

@@ -2,11 +2,21 @@ const express = require("express");
 const bodyParser = require("body-parser"); // for kunna läsa ejs body data
 const mongoose = require("mongoose");
 const router = require("./routes/todoRoute")
+//const nodeSass = require("node-sass-middleware");
 require("dotenv").config();
 
 
 const app = express();
 
+// avkommentera den i fall ni använder sass . Glöm ej npm paketet
+/* app.use(nodeSass( 
+    // src , 
+    { 
+       src: __dirname + "/scss" ,             // path.join(__dirname, "scss"),
+       dest : __dirname+ "/public/style"      // path.join(__dirname , "public")
+    }
+    // dest
+    )) */
 //react , postman 
 //app.use(express.json()) // json format
 app.use(express.static(__dirname + "/public"))
