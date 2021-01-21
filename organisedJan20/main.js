@@ -35,6 +35,8 @@ app.set("view engine", "ejs")
 app.use("/", router)
 
 
+
+
 // connection string , annars skapar database automatisk
   // process.env.DATABASE_URL
 mongoose.connect(process.env.DATABASE_URL, 

@@ -3,44 +3,34 @@ const Todo = require("../model/todo");
 const router = express.Router(); //mini app
 // router // app.get  alt.   router.get
 
-
-
-
-
-
 // mongodb -> model (find)->  express api (app.get) -> ejs -> slutanvändare
 //await Todo.find().skip(2).limit(3).select({date:1})
 //await Todo.find().sort({name:-1})  /descending , asending 
 //.count()
-
 router.get("/", async (req, res)=>{
+// query string
+    console.log(req.query)
+    
 try{
-      const data =  await Todo.find()
-
-             // Todo.filter()
+      const data =  await Todo.find() 
+     // Todo.filter()
       console.log(data)
-      res.render("index.ejs", {data:data, error:" "})
+      res.render("index.ejs", {data:data, error:"empty"})
       
 }
 
 catch(err){
-    const error = err
-    res.render("error.ejs", { error:error })
-}
-    // data : data :-> data
- 
-     
+    res.render("error.ejs", {error:err})
+} 
  })
  
- 
+ //toedit.ejs :- clona index.ejs -> nya -> index.ejs 
  
  // anvädare formulär -> ejs-> 
  //      ->express api (app.post)-> model(new Model().save)-> mongodb
  
  router.post("/", async (req, res)=>{
-
  console.log(  req.body.name) 
-
  try{
  await new Todo({
      name:req.body.name
@@ -48,22 +38,18 @@ catch(err){
  res.redirect("/")
 }
 catch(err){
-
     res.render("error.ejs" , {error: err})
 }
  })
- 
- // 10:30 
- 
- // edit , 
- 
- // app.post() ejs 
- 
+
+
  
  // ejs views med lista av todos(varje data har unique) + req body med nya data -> express api 
            //-> updatera i database med model-> databasen
  router.get("/edit/:id",  async (req, res)=>{
      // hittar data 
+
+     console.log(req.query)
     const todo=  await Todo.findOne({_id:req.params.id})
     console.log(todo)
 

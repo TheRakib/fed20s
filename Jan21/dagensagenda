@@ -28,3 +28,51 @@ controller (logik) // routes
 
 
 * query string(object for route) , query params (variable for route)
+
+
+
+
+// skicka in hela data listan 
+    // gör samma sak dvs loop som index.ejs
+
+    // kolla upp id liknar id som skickas via router när edit renderas 
+
+    //     form med nya data , action ="/edit"
+     
+    
+
+    query string(object for route) :localhost:8000/?page=1 
+                                    localhost:8000/?name="rakib" 
+       
+    
+    
+    , query params (variable for route) : localhost:8000/paramsvalue
+
+
+    // query string ,
+    // recap ,
+    
+    // error,  live-handledning, 
+    
+    // one.com : domän  , webhotell 
+
+
+// tips: find ().skip, limit,
+  //  query string, page nummer , hur många data de vill se lista data 
+
+    // 13.00 - 14.00 :-  
+    // 14-17.00 : individuell handledning
+
+
+    todolist:- > testa pagination  : 
+         // find().skip().limit(10) .count()                        
+         // query string
+    Load more ..
+      
+
+     // Undefined error .  
+     // Hantera null pointer 
+        
+9:00-12.00  : föreläsning 
+
+13-14 : felsöka , recap, handledning , error 
