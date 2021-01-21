@@ -1,4 +1,14 @@
 * Upprepning CRUD
-* MVC 
-* express router 
+* MVC : 
+Model(data) 
+view (users view)
+controller (logik)
+
+
+* express router :  router
+* SASS i express .
 * Mongoose find , advanced find , logical queries , user defined functions
+* Schmema validering 
+
+* todoEdit
+* query string(object for route) , query params (variable for route)

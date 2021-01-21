@@ -8,10 +8,10 @@ require("dotenv").config();
 const app = express();
 
 //react , postman 
-//app.use(express.json())
+//app.use(express.json()) // json format
 app.use(express.static(__dirname + "/public"))
   // __dirname: projektmapp / working directory 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false })) // html formulär 
 
 
 
@@ -53,6 +53,9 @@ res.redirect("/")
 
 // app.post() ejs 
 
+
+// ejs views med lista av todos(varje data har unique) + req body med nya data -> express api 
+          //-> updatera i database med model-> databasen
 app.get("/edit/:id",  async (req, res)=>{
     // hittar data 
    const todo=  await Todo.findOne({_id:req.params.id})
@@ -81,6 +84,9 @@ res.redirect("/")
 // app.delete -> httpXmlREquest/ axios / fetch -> js/react/vue/angular
 
 // app.get för att kunna göra delete operation i ejs/jade/pug/handlebar/ html
+
+// ejs views med lista av todos(varje data har unique)-> express api 
+          //-> radera i database med model-> databasen
 app.get("/delete/:id", async (req, res)=>{
     // raderar 
     await Todo.deleteOne({_id:req.params.id})
@@ -89,6 +95,7 @@ app.get("/delete/:id", async (req, res)=>{
 
 })
 
+ 
 
 // den kollar om det finns nån database med samma namn som man anger i 
 // connection string , annars skapar database automatisk
