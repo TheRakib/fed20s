@@ -6,25 +6,40 @@ const User = require("../model/user")
 const router = express.Router();
 
 
-const errors = " "
+let errors = []
 router.get("/register", (req, res) => {
+
+
     res.render("register.ejs", {errors})
 })
+
+// 13.00 
+// Vi ska hantera errors 
+
+
+
+
 
 
 router.post("/register", async (req, res) => {
     //reg.body
     // vi ska gör hash på lösenord
- const errors = []
+
    
- if( !req.body.name || !req.body.password) {
-    errors.push("field is required")
-    res.render("error.ejs" , {errors})
-      
-   }
 
+ if( !req.body.name )
+ {
+     errors.push(" Name is required")
+ }
 
-//13.00 
+ if( !req.body.password){
+     errors.push(" password is required")
+ }
+
+ if( !req.body.name || !req.body.password){
+
+    res.render("register.ejs", {errors})
+ }
 
    const user=  await new User({
         name: req.body.name,

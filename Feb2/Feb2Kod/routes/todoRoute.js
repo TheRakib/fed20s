@@ -19,30 +19,33 @@ router.get("/", async (req, res)=>{
 
     // query string 
     // man kan lägga till flera 
+   
+    const sorted = + req.query.sorted || 1
     const page = +req.query.page || 1;
     // .sort({name: page})
     
 try{
      // hur många data vi har 
-     const totalData = await Todo.find().count();
+     const totalData = await Todo.find().countDocuments();
      // hur många task skulle visas per gång / per sida
      const dataToShowPerReq = 2;
      // hur många delar/sidor vi skulle ha 
-     //totalPages
-
+    
      
-     const totalDataPart = Math.ceil( totalData   /dataToShowPerReq);
+      //totalPages
+     const totalDataPart = Math.ceil(totalData/dataToShowPerReq);
+     
      const dataToShow= dataToShowPerReq * page
      // lista todos  
      // http://localhost:8000/?page=-1&sorted=1
-    const data =  await Todo.find().limit(dataToShow)
+    const data =  await Todo.find().limit(dataToShow).sort({name: sorted})
       res.render("index.ejs", 
       { data,
         totalData,
         totalDataPart, 
         dataToShow,
         dataToShowPerReq,
-        error:"empty"} )
+        errors:"empty"} )
     
 }
 

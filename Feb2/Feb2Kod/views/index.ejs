@@ -19,8 +19,8 @@
 
 
    
-    <a href="/?page=-1"> Sortera Z-A </a>
-    <a href="/?page=1"> Sortera A-Z  </a>
+    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=-1"> Sortera Z-A </a>
+    <a href="/?page=<%=(dataToShow/dataToShowPerReq)%>&&sorted=1"> Sortera A-Z  </a>
 
 
      <% for(let i=0; i<data.length; i++) { %>
@@ -42,7 +42,7 @@
 
        <% if(totalDataPart !== dataToShow/dataToShowPerReq) { %>
 
-        <a href="/?page=<%=(dataToShow/dataToShowPerReq+1)%>"> 
+        <a href="/?page=<%=(dataToShow/dataToShowPerReq) +1%>"> 
             Visa flera
           </a>
       <% } else {   %>
@@ -53,10 +53,6 @@
 
       <% } %>
     
-      //
-
-
-      //  1, 2, 3, 4....
-      //  hur många sidor finns ni ska via a taggen med page 1 .....
+      
 </body>
 </html>
