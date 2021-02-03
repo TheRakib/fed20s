@@ -7,15 +7,24 @@ const router = express.Router(); //mini app
 //await Todo.find().skip(2).limit(3).select({date:1})
 //await Todo.find().sort({name:-1})  /descending , asending 
 //.count()
+
+
+
+ 
+
 router.get("/", async (req, res)=>{
 // query string
-    console.log(req.query)
+    
+
     
 try{
-      const data =  await Todo.find() 
+      const data =  await Todo.find()
+      
+    
      // Todo.filter()
-      console.log(data)
-      res.render("index.ejs", {data:data, error:"empty"})
+      
+      res.render("index.ejs", {data,
+        error:"empty"})
       
 }
 

@@ -1,32 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const User = require("../model/user")
-
 const router = express.Router();
-
 
 let errors = []
 router.get("/register", (req, res) => {
-
-
     res.render("register.ejs", {errors})
 })
 
-// 13.00 
-// Vi ska hantera errors 
-
-
-
-
-
-
 router.post("/register", async (req, res) => {
-    //reg.body
-    // vi ska gör hash på lösenord
-
-   
-
  if( !req.body.name )
  {
      errors.push(" Name is required")
@@ -67,6 +49,10 @@ router.post("/login" , async (req, res)=>{
        
     }
  // läsa data från databasen
+
+ 
+ 
+
  res.send(" försök igen")
 })
 

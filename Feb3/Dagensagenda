@@ -1,0 +1,95 @@
+
+
+* Login och registering
+* Authorization och Authentication
+* JWT och session 
+* Implementerar vi en login och registering
+
+
+http/https: - webb kommunikations protokol -> stateless 
+
+client --- > mitt är rakib ---> server 
+
+client ---- > kommer du ihåg mig  ---> who this new phone <-  server
+
+authentication -> identifiera dig varje gång man skapar koppling ->   
+        server -> skapar en token, validation time -> 1-
+client ---> token --->  server 
+
+
+session based -> token som inte har payload/data/userinfo 
+    
+
+    ---> server /datorn / hosting server 
+    ---> hosting server 2
+
+json web token based ->  token som har payload med sig 
+     
+      ---> server hosting 1, server hosting 2 ... 
+
+
+             deploy  -- app/image --->  datorn/server 1 (2000usd)
+                                        datorn/server 2 (2000usd)
+                    auto scaling -->    datorn/server 3 
+                                        datorn/server 4
+
+
+
+ // hur hantera concurrency  
+
+serverless -->   limit
+
+
+   user ---> loggade in   -->   server 1(identifierat user)
+   token 
+
+   user ----> ge mig min profile sida ---> server 2( response )
+   token                                   token som har payload 
+
+authorization ->  oauth logga in med facebook, insta , google, appleId
+
+ tredjeparts -> authorization och authentication 
+           oauth, aws cognito, firebase authentication 
+
+
+
+// lista av object 
+// visa lista i frontend  
+ lista av filmer. 
+// skapa en enskild sida för varje object 
+  //presentera data , kunna hantera router 
+
+
+***  
+  lösenord : ska ha hash  
+
+hash , secret key -> encrypt ->
+  rakib -> dfasdfasf11212wasdvasfsfasdfasdfkalsdfjasdlkfjasdlö  -> hash secret key->decrypta 
+
+
+
+jwt -> hash lösenord -> läsa hash 
+
+
+***** 
+statuskod 401  authentication error
+
+statuskod 403  authorization error (behörighet )
+
+
+
+--- 
+
+* hashing password bcrypt -> saves hashed password 
+* I login we use bcrypt to compare  (login req.body.password , database hashed password)
+
+* If everything is verified/compared right -> jwt.sign({userInfo}, secretKey) -> skapar en signIn token
+* res.cookie("cookienamnet", signIn token )
+
+* Vi ska skydda router med jsonVerification  -> 
+               * Vi ska skapa en middleware  (req, res, next) 
+               * jwt.verify(token , secretKey)
+               * låta user komma in eller neka beroende om de är verified eller inte 
+
+ 
+---
