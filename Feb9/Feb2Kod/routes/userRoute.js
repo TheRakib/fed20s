@@ -4,19 +4,45 @@ const User = require("../model/user")
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt  = require("jsonwebtoken"); 
-const verifyToken = require("./middleware/userVerify")
+const verifyToken = require("./middleware/userVerify");
+
+
+const crypto = require("crypto");
+
+const nodemailer = require("nodemailer");
+const nodemailerSmtpTransport = require("nodemailer-smtp-transport");
+
+
+
+require("dotenv").config();
 
 
 
 let errors = []
 
 
+// nåt transport för att kunna skicka till användare 
+
+
+// kl. 11.00 
+
+const transport = nodemailer.createTransport( 
+    nodemailerSmtpTransport({ service: "gmail",
+    auth:{
+      user: "feddynamiskweb@gmail.com",
+      pass: "FedDynamiskWeb.2021"
+    }
+})
+
+ )
+//13:50 : 
+ 
+ // glöm inte aktivera mindre säkra app
+ // ta bort MFA  / två väg authentication
 
 
 
 router.get("/test", verifyToken, (req, res)=>{
-
-
     res.send("it works ")
 
 })
@@ -119,7 +145,7 @@ router.post("/login", async (req, res) => {
 })
 
 
-// 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
+
 
 
 router.get("/reset", (req, res)=> {
@@ -132,27 +158,85 @@ router.get("/reset", (req, res)=> {
 
 
 
-router.post("/reset", (req, res)=>{
-
+router.post("/reset",  async (req, res)=>{
 
 
     // Vi ska först användare finns i database 
-      
 
+   const user =  await User.findOne({email:req.body.email})
+      
     // Vi ska hämta deras mejl adress 
 
 
+
+    //res.send(user.email)
+
       //  -> token och tokenExpiration 
 
+      if (user) {
+      const token = await crypto.randomBytes(32);
+
+  
          //   spara i database 
 
-    // skickar vi mejl till dem via nodemailer och sendgrid
+         user.token= token.toString("hex");
+         user.tokenExpiration = Date.now() + 3600000;
+         await user.save();
+    
+         // send mail with better mail server
+    await transport.sendMail({
+            from: "feddynamiskweb@gmail.com",
+            to: user.email, // Change to your recipient
+           // Change to your verified sender
+            subject: 'Återställa ditt lösenord',
+           
+            html: `<h1> Trycka på den här länken : <a href=" http://localhost:8000/reset/${user.token}"> Link  </a> </h1>`,
+         }) 
+         
 
+
+       return res.send("ditt lösenord är skickat")
+      }
 
 
 })
 
-// kl. 10.00 
+
+
+router.get("/reset/:token", async (req, res)=>{
+
+
+ const token =  req.params.token
+
+ 
+ // check if user has the right token and token has valid time
+
+
+ const userWithtokenExist = await User.findOne({token:token, tokenExpiration: {$gt:Date.now()}})
+
+// console.log(userWithtokenExist)
+
+ res.render("resetPassForm.ejs", {user:userWithtokenExist})
+
+
+})
+
+
+router.post("/resetPass" , async (req, res)=>{
+const nyttPass = req.body.password;
+    // tar in nytt lösenord 
+    // spara in i user in i database
+const user = await User.findOne({email:req.body.email})
+const salt = await bcrypt.genSalt(10);
+const hashedPassword = await bcrypt.hash(nyttPass, salt)
+  user.password = hashedPassword ;
+
+  user.save();
+
+res.send("Lykades att skapa nytt lösenord")
+
+
+})
 
 
 module.exports = router;
