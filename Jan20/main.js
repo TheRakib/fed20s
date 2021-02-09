@@ -2,11 +2,18 @@ const express = require("express");
 const bodyParser = require("body-parser"); // for kunna läsa ejs body data
 const mongoose = require("mongoose");
 const Todo = require("./model/todo");
+const nodeSass = require("node-sass-middleware");
+
 require("dotenv").config();
 
 
 const app = express();
 
+
+app.use(modeSass({
+    src: __dirname + "/public/style/sass"
+    , dest: __dirname + '/public'
+}))
 //react , postman 
 //app.use(express.json()) // json format
 app.use(express.static(__dirname + "/public"))

@@ -59,7 +59,8 @@ router.post("/register", async (req, res) => {
 
     const user = await new User({
         name: req.body.name,
-        password: hashedPassword
+        email: req.body.email
+       
     }).save()
 
     res.redirect("/")

@@ -1,0 +1,37 @@
+
+
+
+
+* Reset lösenord
+
+ --  Först får man en ny view med en form 
+
+ --  När man submit form får man ett mejl med länk  
+
+          --- Vi behöver mejl service ,  tredje parts : sendgrid 
+
+https://signup.sendgrid.com/
+
+
+
+          --- nodemailer npm 
+          --- cryto för att kunna skapa token 
+          --- TokenExpiration
+          --- Token och TokenExpiration sparas i database
+
+
+
+ --  I länken har den nya view med en form (nytt lösenord input)
+
+
+ --  När man gör en submit sparar appen nytt lösenord i databasen. 
+
+
+
+
+
+
+
+* Nytt projekt 
+
+* ER delen 
