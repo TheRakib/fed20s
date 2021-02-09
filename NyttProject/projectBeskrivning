@@ -1,0 +1,37 @@
+*En app där Instruktörer kan sälja kurser till studenter.
+
+entity/huvud aktörer /huvud object i appen ? /model/data sparas in i databasen
+
+
+Model  achitecture/design: 
+  - Student   : vad ska vi spara om student 
+  - Lärare    :  ==
+  - Kurser    : ==
+
+
+
+
+
+
+MVC:- projektmapp/filer design. 
+
+
+
+Whole app architecture: 
+
+
+
+
+
+
+
+
+
+-----
+NoSQL
+  Entity relation :  
+  One to one relation :  en person kan ha ett IDkort
+  One to many relation: en skola kan ha flera studenter
+  many to many relation : lärare kan ha flera studenter , studenter kan ha flera lärare.
+
+
