@@ -24,6 +24,8 @@ app.use(express.json());
 // för att kunna parsa/konvertera ejs data till js 
 app.use(express.urlencoded({extended:false}))
 
+// för att kunna läsa cookies // behövs npm i cookie-parser
+app.use(cookieParser())
 
 
 

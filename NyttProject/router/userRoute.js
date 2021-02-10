@@ -5,6 +5,7 @@ const router = express.Router();
 
 const {registerRender, registerSubmit } =require("../controller/registerController")
 
+const {loginRender, loginSubmit} = require("../controller/loginController")
 // controller ska importeras här 
 
 //router.get().post()
@@ -14,6 +15,10 @@ const {registerRender, registerSubmit } =require("../controller/registerControll
 router.get("/register", registerRender );
 
 router.post("/register", registerSubmit);
+
+router.get("/login", loginRender );
+
+router.post("/login", loginSubmit)
 
 
 module.exports = router;
