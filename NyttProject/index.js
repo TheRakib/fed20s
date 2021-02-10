@@ -16,6 +16,16 @@ const app = express();
 
 // app middlewares 
 
+app.set("view engine", "ejs");
+
+// för att kunna parsa/konvertera json data till js 
+app.use(express.json());
+
+// för att kunna parsa/konvertera ejs data till js 
+app.use(express.urlencoded({extended:false}))
+
+
+
 
 
 
@@ -28,12 +38,17 @@ app.use(userRouter);
 
 
 
-
+const options = {
+    useNewUrlParser: true,
+     useUnifiedTopology: true , 
+     useFindAndModify: false,
+    useCreateIndex: true
+}
 
 
 // Fix warnings from mongo DB
 
-mongoose.connect(process.env.DATABASE_URL,   (err)=>{
+mongoose.connect(process.env.DATABASE_URL, options, (err)=>{
 
 if (err) {
     console.log(err)
