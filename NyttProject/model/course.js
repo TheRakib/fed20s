@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 
 const courseSchema = new mongoose.Schema({
 
-    name: {type:String, required:true}, 
-    description :String, 
-    price :{type:String, required:true}
+    name:{type:String, required:true}, 
+    description:String, 
+    price :{type:Number, required:true}
 
 
 
@@ -15,3 +15,5 @@ const courseSchema = new mongoose.Schema({
 const Course = mongoose.model("course", courseSchema)
 
 module.exports = Course;
+
+//9:30

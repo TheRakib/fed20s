@@ -6,7 +6,51 @@ entity/huvud aktörer /huvud object i appen ? /model/data sparas in i databasen
 Model  achitecture/design: 
   - Student   : vad ska vi spara om student 
   - Lärare    :  ==
+
+  user :   name, email, password , role: lärare
+
   - Kurser    : ==
+
+
+
+
+
+----- 
+
+Routes: 
+ /register, 
+ /login,  
+ /resetPassword, 
+ /resetPassword/:token,  
+ /resetForm, 
+ /instructor, 
+ /student,
+ 
+    === userRoute
+
+
+
+   
+
+ /, 
+ /courses,
+ /course/:id
+
+ == courseRoute
+
+
+ views: 
+  register.ejs, 
+  login.ejs, 
+  resetPassword.ejs,
+  resetForm.ejs, 
+  courses.ejs, 
+  error.ejs
+
+ 
+
+
+
 
 
 

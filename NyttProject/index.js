@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
+const userRouter = require("./router/userRoute");
+
 require("dotenv").config();
 
 // JSON parse middleware 
@@ -10,6 +12,23 @@ require("dotenv").config();
 
 
 const app = express();
+
+
+// app middlewares 
+
+
+
+
+
+//router middlewares 
+
+app.use(userRouter);
+
+
+
+
+
+
 
 
 // Fix warnings from mongo DB
