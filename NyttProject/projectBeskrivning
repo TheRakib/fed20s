@@ -86,3 +86,16 @@ NoSQL
 ** reset password , mail service in i register 
 ** Lärare :-  skapa kurser 
 ** authorization 
+
+// fixa profile , menu
+// try catch , visa error meddelande
+
+
+// lärare verify delen
+// CRUD 
+
+// user Read 
+
+// payment service stripe 
+// relationer mellan modellerna 
+// egna metoder för att kunna hantera anpassad business logik. 
