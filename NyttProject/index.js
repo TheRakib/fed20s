@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
 const userRouter = require("./router/userRoute");
+const homeRouter = require("./router/homeRoute");
 
 require("dotenv").config();
 
@@ -31,6 +32,7 @@ app.use(cookieParser())
 //router middlewares 
 
 app.use(userRouter);
+app.use(homeRouter);
 
 
 

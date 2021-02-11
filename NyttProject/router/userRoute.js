@@ -7,7 +7,7 @@ const {registerRender, registerSubmit } =require("../controller/registerControll
 
 const {loginRender, loginSubmit} = require("../controller/loginController");
  
-const {resetRender, resetSubmit} = require("../controller/resetPassword");
+const {resetRender, resetSubmit, resetParams, resetFormSubmit} = require("../controller/resetPassword");
 const verifyToken = require("../middleware/verifyUser");
 // controller ska importeras här 
 
@@ -26,6 +26,11 @@ router.post("/login", loginSubmit)
 router.get("/reset",  resetRender);
 
 router.post("/reset", resetSubmit)
+
+
+router.get("/reset/:token", resetParams)
+
+router.post("/resetPasswordForm", resetFormSubmit)
 
 
 
