@@ -79,3 +79,10 @@ NoSQL
   many to many relation : lärare kan ha flera studenter , studenter kan ha flera lärare.
 
 
+
+
+** JWT, Cookie , andra alternative : ok 
+** gå igenom gammal kodbasen : ok 
+** reset password , mail service in i register 
+** Lärare :-  skapa kurser 
+** authorization 

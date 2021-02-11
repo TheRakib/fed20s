@@ -28,13 +28,10 @@ app.use(express.urlencoded({extended:false}))
 app.use(cookieParser())
 
 
-
-
-
-
 //router middlewares 
 
 app.use(userRouter);
+
 
 
 
