@@ -1,9 +1,10 @@
 const express = require("express");
 
 const router = express.Router();
-const verifyUser = require("../middleware/verifyUser")
+const verifyUser = require("../middleware/verifyUser");
+const verifyInstructor = require("../middleware/verifyInstructor")
 
-const {homeRender} = require("../controller/homeController");
+const {homeRender, homeIntructor} = require("../controller/homeController");
 
 
 
@@ -16,4 +17,13 @@ router.get("/logout", (req, res)=>{
     res.clearCookie("jwtToken").redirect("/login")
 })
 
+
+
+router.get("/instructor", verifyInstructor , homeIntructor)
+
+
 module.exports = router;
+
+// /addCourse, /intructorSite : - verifyInstructor
+
+//  /home , /user, / checkout  : -verifyUser

@@ -91,11 +91,21 @@ NoSQL
 // try catch , visa error meddelande
 
 
-// lärare verify delen
-// CRUD 
 
-// user Read 
-
-// payment service stripe 
+// lärare verify delen : verifyInstructor
+// CRUD  
+// user Read : visa kuserna 
+// user ska kunna lägga till kurser i cart. 
 // relationer mellan modellerna 
 // egna metoder för att kunna hantera anpassad business logik. 
+
+
+
+// payment service med stripe 
+// heroku 
+
+// Client server separat architecture 
+// API gateway 
+// Strapi cms  , cms   
+
+

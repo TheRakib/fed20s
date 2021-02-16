@@ -11,6 +11,14 @@ const homeRender = (req, res)=>{
 
 }
 
+const homeIntructor = (req, res)=>{
+
+    console.log(req.user.user)
+
+
+    res.render("instructorHome.ejs", {user: req.user.user})
+}
 module.exports = {
-    homeRender
+    homeRender,
+    homeIntructor
 }

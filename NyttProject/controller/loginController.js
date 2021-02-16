@@ -8,6 +8,8 @@ const loginRender = (req, res)=>{
     res.render("login.ejs", {err:" "})
 
 }
+// render : visas node js data med en template , 
+// redirect : flytta till befientlig route  
 const loginSubmit = async(req, res)=> {
 
     // read from req.body 

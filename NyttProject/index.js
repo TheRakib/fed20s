@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 
 const userRouter = require("./router/userRoute");
 const homeRouter = require("./router/homeRoute");
+const courseRouter = require("./router/courseRoute")
 
 require("dotenv").config();
 
@@ -33,6 +34,7 @@ app.use(cookieParser())
 
 app.use(userRouter);
 app.use(homeRouter);
+app.use(courseRouter)
 
 
 
