@@ -10,9 +10,26 @@ const userSchema = new mongoose.Schema({
     password:{type:String, required:true},
     role: String, 
     token:String,
-    tokenExpiration: Date
+    tokenExpiration: Date,
+    shoppingCart: [
+        {
+            type:mongoose.Schema.Types.ObjectId, 
+            ref: "course"
+        }
+    ]
 
 })
+
+//hur ska vi lagra detta 
+// mongoose enga metoder för att kunna hantera detta 
+
+userSchema.methods.addToCart = function(courseId) {
+ // pushar in i shoppingCart 
+   this.shoppingCart.push(courseId)
+// Filtera data så att användare inte ska kunna lägga till samma course två gånger
+   this.save();
+ 
+}
 
 const User = mongoose.model("user", userSchema)
 

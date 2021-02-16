@@ -15,15 +15,15 @@ const verifyTokenInstructor = (req, res, next)=>{
   //
 
   console.log(" verify intructor is triggered")
-  
   //console.log(validUser.user.role)
-
   if(!validUser.user.role) return res.render("login.ejs", {err:"Du har inte authorization för att kunna göra detta"})
-
- 
   req.user = validUser;
-
   next();
 }
 
 module.exports = verifyTokenInstructor;
+
+// verifyInstructor route 
+
+// addCourse 
+// showCourse

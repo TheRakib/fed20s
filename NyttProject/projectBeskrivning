@@ -101,9 +101,23 @@ NoSQL
 
 
 
-// payment service med stripe 
-// heroku 
+// Normalisation 
+course - instructor - user      courseOrder ( course, user , instructor )
 
+
+denormalised 
+// course , user     en till lista av kurser 
+// i user lagrade vi kursId som referens 
+// populate för att kunna extrahera data som tillhör till kursId
+
+
+
+
+Onsdag: 
+// payment service med stripe   
+// heroku   
+
+Torsdag:
 // Client server separat architecture 
 // API gateway 
 // Strapi cms  , cms   
