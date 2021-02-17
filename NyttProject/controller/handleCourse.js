@@ -66,27 +66,31 @@ const checkout = async(req, res)=> {
      console.log(user.shoppingCart)
     //  success router, cancel router
 
-    const price = Number(user.shoppingCart[0].price)
+    //const price = Number(user.shoppingCart[0].price)
     // skapa stripe session 
  const session=    await stripe.checkout.sessions.create({
-        success_url: 'https://example.com/success',
+        success_url: 'http://localhost:8002/shoppingSuccess',
         cancel_url: 'https://example.com/cancel',
         payment_method_types: ['card'],
-        line_items: [
-        {price: price , quantity: 1},
-       ],
+        line_items: user.shoppingCart.map( course => {
+
+            return {
+                name: course.name, 
+                amount:  course.price * 100, 
+                quantity: 1, 
+                currency: "sek"
+            }
+        }), 
       mode: 'payment',
       
     })
-
 console.log(session)
-
-res.send("testing checkout")
-
-    // skicka session Id till checkout ejs
-// 10:30
+res.render("checkout.ejs" , {cartItem: user.shoppingCart, sessionId: session.id})
 
 }
+
+
+
 
 module.exports= {
     addCourseForm, 
