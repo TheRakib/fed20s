@@ -1,17 +1,9 @@
 
 const Course = require("../model/course");
+const { startSession } = require("../model/user");
 const User = require("../model/user")
-
-
-//instructor -> addar Kurserna -> sparar detta i course collection
-
-// spara kurserna i userInstructorens courseList attributen 
-
-
-
-
-
-
+require("dotenv").config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const addCourseForm = (req, res)=>{
     res.render("courseForm.ejs", {err:" "})
@@ -66,10 +58,41 @@ const addToShoppingCart = async(req, res) => {
   res.render("shoppingCart.ejs", {cartItem:userWithCourseData.shoppingCart, err:" " })
 }
 
+const checkout = async(req, res)=> {
+    
+    // hitta courses som ska köpas 
+     const user = await User.findOne({_id: req.user.user._id}).populate("shoppingCart")
+
+     console.log(user.shoppingCart)
+    //  success router, cancel router
+
+    const price = Number(user.shoppingCart[0].price)
+    // skapa stripe session 
+ const session=    await stripe.checkout.sessions.create({
+        success_url: 'https://example.com/success',
+        cancel_url: 'https://example.com/cancel',
+        payment_method_types: ['card'],
+        line_items: [
+        {price: price , quantity: 1},
+       ],
+      mode: 'payment',
+      
+    })
+
+console.log(session)
+
+res.send("testing checkout")
+
+    // skicka session Id till checkout ejs
+// 10:30
+
+}
+
 module.exports= {
     addCourseForm, 
     showCourses,
     addCourseFormSubmit,
     addToShoppingCart,
-    showInstructorCourses
+    showInstructorCourses,
+    checkout
 }
