@@ -91,6 +91,9 @@ NoSQL
 // try catch , visa error meddelande
 
 
+// 1.controller (2.renderar ejs template med data .Då måste man skapa ejs views) 
+ -> 3.route ->  4. index.js
+
 
 // lärare verify delen : verifyInstructor
 // CRUD  
@@ -98,6 +101,16 @@ NoSQL
 // user ska kunna lägga till kurser i cart. 
 // relationer mellan modellerna 
 // egna metoder för att kunna hantera anpassad business logik. 
+
+
+Instructor -> som skapa och se egna kurser
+   
+Instructor -> user -> kursLista 
+
+återkommer om 3 min
+ 
+
+user -> se alla kurserna  -> shoppingList 
 
 
 

@@ -16,7 +16,13 @@ const userSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId, 
             ref: "course"
         }
-    ]
+    ], 
+    courseList: [{
+        type:mongoose.Schema.Types.ObjectId, 
+        ref: "course"
+
+    }]
+    
 
 })
 
@@ -29,6 +35,15 @@ userSchema.methods.addToCart = function(courseId) {
 // Filtera data så att användare inte ska kunna lägga till samma course två gånger
    this.save();
  
+}
+
+// arrow function och this  går inte riktigt bra. 
+
+userSchema.methods.addCourseList = function(courseId){
+
+    this.courseList.push(courseId);
+    this.save();
+
 }
 
 const User = mongoose.model("user", userSchema)
