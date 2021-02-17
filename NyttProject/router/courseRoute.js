@@ -4,7 +4,8 @@ const {
     showCourses, 
     addToShoppingCart,
     showInstructorCourses,
-    checkout
+    checkout,
+    shoppingSuccess
  } = require("../controller/handleCourse");
 const express = require("express");
 const verifyInstructor = require("../middleware/verifyInstructor");
@@ -22,5 +23,5 @@ router.get("/addToCart/:id", verifyUser, addToShoppingCart)
 router.get("/showMyCourses", verifyInstructor, showInstructorCourses);
 
 router.get("/checkout", verifyUser, checkout)
-
+router.get("/shoppingSuccess", verifyUser, shoppingSuccess)
 module.exports = router;

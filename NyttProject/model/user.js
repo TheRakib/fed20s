@@ -46,6 +46,8 @@ userSchema.methods.addCourseList = function(courseId){
 
 }
 
+
+
 const User = mongoose.model("user", userSchema)
 
 

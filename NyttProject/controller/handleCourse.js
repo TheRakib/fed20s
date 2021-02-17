@@ -89,7 +89,15 @@ res.render("checkout.ejs" , {cartItem: user.shoppingCart, sessionId: session.id}
 
 }
 
+const shoppingSuccess = async (req, res)=>{
 
+    const user =  await User.findOne({_id: req.user.user._id})
+    user.shoppingCart = [];
+    user.save();
+    console.log(user)
+    res.send(" din  varukorg är tomt . Vi skickar din beställning inom 3 dagar")
+
+}
 
 
 module.exports= {
@@ -98,5 +106,6 @@ module.exports= {
     addCourseFormSubmit,
     addToShoppingCart,
     showInstructorCourses,
-    checkout
+    checkout,
+    shoppingSuccess
 }
