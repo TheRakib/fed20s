@@ -147,6 +147,79 @@ Torsdag:
 
 
 // Heroku , aws , digital, gcp, azure 
+
+
+** Heroku deployement : 
+
+
+* Fixa package.json :
+  Steg 1:  
+   Använd er node version:  node -v i terminalen för att kunna hitta er node version
+  och sen lägg detta i package.json 
+   "engines": {
+    "node": "12.19.0"
+  },
+
+* package.json : fixa "start" :" node index.js"
+* fixa port i index.js filen:  process.env.PORT
+
+
+
+
+Ta bort package-lock.json. 
+
+
+
+
+Steg 2:
+
+fix git : 
+   // ifall ni vill ta bort git init  :  rm -rf .git   // tar bort git init
+  - .gitignore node_modules/  .env 
+  - git init på det projektet ni ska deploya 
+  - git add . + commit 
+
+
+Steg 3: 
+heroku cli :  
+cli: 
+    * windows : npm i @heroku-cli/command // alternative ladda ner : https://devcenter.heroku.com/articles/heroku-cli
+
+    * Mac user: brew tap heroku/brew && brew install heroku
+
+-----  ---- 
+
+
+Steg 4: 
+Heroku login och deployment:-
+    -  heroku login
+    -  heroku create
+    -  git push heroku main
+
+- i fall ni ser src reference error - bytt branch till main 
+
+steg 5: 
+
+Ifall ni inte har gjort detta steg 1 gör så: 
+   * fixa port i index.js filen:  process.env.PORT
+   * package.json : fixa "start" :" node index.js"
+
+
+Fixa env variabler in i heroku app -> settings-> reveal config vars -> mata in env data 
+
+** Git add . + commit + git push heroku main  // ifall du ändrar något 
+
+Gå till höger sida i setting -> more -> restart all dynos.
+
+
+
+
+
+
+
+
+
+
 // Client server separat architecture 
 
 

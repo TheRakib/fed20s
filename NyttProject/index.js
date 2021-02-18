@@ -57,7 +57,7 @@ if (err) {
     console.log(err)
     return 
 }
-    app.listen(8002, ()=>{
+    app.listen(process.env.PORT || 8002, ()=>{
 
         console.log("app is running")
     })
