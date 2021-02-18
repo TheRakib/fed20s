@@ -68,6 +68,7 @@ const checkout = async(req, res)=> {
 
     //const price = Number(user.shoppingCart[0].price)
     // skapa stripe session 
+    if(!user.shoppingCart || user.shoppingCart.length ===0) return res.redirect("/showCourses")
  const session=    await stripe.checkout.sessions.create({
         success_url: 'http://localhost:8002/shoppingSuccess',
         cancel_url: 'https://example.com/cancel',
@@ -84,7 +85,7 @@ const checkout = async(req, res)=> {
       mode: 'payment',
       
     })
-console.log(session)
+
 res.render("checkout.ejs" , {cartItem: user.shoppingCart, sessionId: session.id})
 
 }

@@ -131,12 +131,23 @@ Onsdag:
 
 
 
-// heroku   
+//   
 
 Torsdag:
+// organizera koden 
+
+** Logout ska synas i menubar 
+
+** add course  
+** Profile sidan : showmycourses
+** add to cart menyn
+** Checkout 
+** showmycourses
+** add checkout i add to cart route
+
+
+// Heroku , aws , digital, gcp, azure 
 // Client server separat architecture 
-// API gateway 
-// Strapi cms,  cms  
 
 
 
@@ -149,5 +160,5 @@ Torsdag:
 // mail server 
 // payment . stripe intregration 
 // deployement 
-==== ========  ===== ========== ===== 
+==== ====== ==  ===== ========  == ===== 
 
