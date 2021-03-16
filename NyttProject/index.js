@@ -18,6 +18,7 @@ const app = express();
 
 // app middlewares 
 
+app.use(express.static(__dirname + "/public"))
 app.set("view engine", "ejs");
 
 // för att kunna parsa/konvertera json data till js 

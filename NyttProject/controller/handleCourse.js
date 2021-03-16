@@ -1,8 +1,11 @@
 
+const { query } = require("express");
 const Course = require("../model/course");
 const { startSession } = require("../model/user");
-const User = require("../model/user")
+const {User} = require("../model/user");
+
 require("dotenv").config();
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const addCourseForm = (req, res)=>{
@@ -13,8 +16,6 @@ const addCourseFormSubmit = async(req, res)=>{
  const {name, description, price}=   req.body
  // skapa course i database 
  const course = await new Course({name: name, description:description, price: price}).save();
-    
- 
  const user = await User.findOne({_id:req.user.user._id})
 
  user.addCourseList(course._id);
@@ -22,22 +23,18 @@ const addCourseFormSubmit = async(req, res)=>{
  res.redirect("/showCourses")
 }
 
-
 const showInstructorCourses =async (req, res)=>{
-
 //hitta vilken user/Instructor som är inloggad 
 // populera courseList 
 // visa den till ejs template 
-
 const user = await User.findOne({_id:req.user.user._id}).populate("courseList")
-
 console.log(user.courseList);
-
 res.render("instructorPage.ejs", { courses: user.courseList, err:""})
-
-
 }
 
+
+  // bild/files -> encode -blob -> sparas i mongoDB 
+  // från db blob/encoded -> decode -> visar till användare 
 
 const showCourses = async(req, res)=>{
  const courses = await Course.find()

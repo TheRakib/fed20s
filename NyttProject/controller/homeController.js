@@ -1,11 +1,12 @@
-const homeRender = (req, res)=>{
+
+const homeRender = async(req, res)=>{
    // nåt i request har alla information
     console.log(req.user)
-    res.render("home.ejs", {user: req.user.user} )
-
-
+   // res.send({user})
+   res.render("home.ejs", {user: req.user.user} )
+ 
 }
-
+   
 const homeIntructor = (req, res)=>{
     console.log(req.user.user)
 

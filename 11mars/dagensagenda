@@ -1,0 +1,28 @@
+
+
+** Joi validering. 
+joi: 
+Steg 1: npm i joi
+Steg 2: en function i model  som har joi schema och schema.validate(data.)
+// skriver vi schema :   Joi.object ({
+ // här skriver man schema
+})
+schema.validate(data)
+Steg 3: när man tar in data från frontend brukar man anropa den här funktionen och den returnerar 
+error ifall man har matat in fel data.
+============================================
+
+** Multer npm 
+
+  Steg 1: npm install --save multer
+
+  Steg 2: 
+
+  ** User -> upload files/pics -> multer i diskstorage 
+              ->path kommer att sparas i db tillsammans med objektet
+  ** DiskStorage + path  -> image -> user
+
+
+
+
+

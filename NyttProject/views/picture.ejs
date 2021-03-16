@@ -1,0 +1,11 @@
+<form action="/profile" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" />
+    <input type="text" name="name" >
+    <button type="submit">Upload</button>
+</form>
+
+<%  allPics.map(  pic => { %>
+    <img src="/uploads/<%=pic.path%>" alt="kunde inte visa bilden" height="200px"
+     width="100px">
+    <span> <%= pic.name %></span>
+<% }) %>

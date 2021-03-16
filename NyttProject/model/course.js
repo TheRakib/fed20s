@@ -12,6 +12,8 @@ const courseSchema = new mongoose.Schema({
 
 })
 
+//10.00
+
 const Course = mongoose.model("course", courseSchema)
 
 module.exports = Course;

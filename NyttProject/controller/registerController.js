@@ -1,5 +1,5 @@
 
-const User = require("../model/user");
+const  { User, validateUser} = require("../model/user");
 const bcrypt = require("bcrypt")
 
 
@@ -11,9 +11,13 @@ const registerRender = (req, res)=>{
 }
 
 const registerSubmit = async (req, res)=>{
-
  // Read data from req.body 
-    const { name,email, password } = req.body;
+   const {error}  = validateUser(req.body)
+   console.log(error);
+   if (error) return res.send(error.details[0].message);
+
+   const { name,email, password } = req.body;
+
 
     // spara lösenord med salt , bcrypt : hash password
 
